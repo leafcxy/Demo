@@ -1,0 +1,8 @@
+D:\github\Demo\csharp\Solution\DataTablePrinter\bin\Debug\DataTablePrinter.exe.config
+D:\github\Demo\csharp\Solution\DataTablePrinter\bin\Debug\DataTablePrinter.exe
+D:\github\Demo\csharp\Solution\DataTablePrinter\bin\Debug\DataTablePrinter.pdb
+D:\github\Demo\csharp\Solution\DataTablePrinter\obj\Debug\DataTablePrinter.csproj.AssemblyReference.cache
+D:\github\Demo\csharp\Solution\DataTablePrinter\obj\Debug\DataTablePrinter.csproj.SuggestedBindingRedirects.cache
+D:\github\Demo\csharp\Solution\DataTablePrinter\obj\Debug\DataTablePrinter.csproj.CoreCompileInputs.cache
+D:\github\Demo\csharp\Solution\DataTablePrinter\obj\Debug\DataTablePrinter.exe
+D:\github\Demo\csharp\Solution\DataTablePrinter\obj\Debug\DataTablePrinter.pdb

@@ -1,0 +1,8 @@
+D:\github\Demo\csharp\Solution\DateTime\bin\Debug\DateTime.exe.config
+D:\github\Demo\csharp\Solution\DateTime\bin\Debug\DateTime.exe
+D:\github\Demo\csharp\Solution\DateTime\bin\Debug\DateTime.pdb
+D:\github\Demo\csharp\Solution\DateTime\obj\Debug\DateTimeDemo.csproj.AssemblyReference.cache
+D:\github\Demo\csharp\Solution\DateTime\obj\Debug\DateTimeDemo.csproj.SuggestedBindingRedirects.cache
+D:\github\Demo\csharp\Solution\DateTime\obj\Debug\DateTimeDemo.csproj.CoreCompileInputs.cache
+D:\github\Demo\csharp\Solution\DateTime\obj\Debug\DateTime.exe
+D:\github\Demo\csharp\Solution\DateTime\obj\Debug\DateTime.pdb

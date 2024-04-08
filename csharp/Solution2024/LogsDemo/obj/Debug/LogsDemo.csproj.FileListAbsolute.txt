@@ -1,0 +1,8 @@
+D:\github\Demo\csharp\Solution\LogsDemo\bin\Debug\LogsDemo.exe.config
+D:\github\Demo\csharp\Solution\LogsDemo\bin\Debug\LogsDemo.exe
+D:\github\Demo\csharp\Solution\LogsDemo\bin\Debug\LogsDemo.pdb
+D:\github\Demo\csharp\Solution\LogsDemo\obj\Debug\LogsDemo.csproj.AssemblyReference.cache
+D:\github\Demo\csharp\Solution\LogsDemo\obj\Debug\LogsDemo.csproj.SuggestedBindingRedirects.cache
+D:\github\Demo\csharp\Solution\LogsDemo\obj\Debug\LogsDemo.csproj.CoreCompileInputs.cache
+D:\github\Demo\csharp\Solution\LogsDemo\obj\Debug\LogsDemo.exe
+D:\github\Demo\csharp\Solution\LogsDemo\obj\Debug\LogsDemo.pdb
