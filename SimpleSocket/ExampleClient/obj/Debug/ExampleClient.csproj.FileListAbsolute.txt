@@ -1,0 +1,9 @@
+D:\项目管理\CSharp\SimpleSocket\ExampleClient\bin\Debug\ExampleClient.exe.config
+D:\项目管理\CSharp\SimpleSocket\ExampleClient\bin\Debug\ExampleClient.exe
+D:\项目管理\CSharp\SimpleSocket\ExampleClient\bin\Debug\ExampleClient.pdb
+D:\项目管理\CSharp\SimpleSocket\ExampleClient\bin\Debug\SimpleSocket.dll
+D:\项目管理\CSharp\SimpleSocket\ExampleClient\bin\Debug\SimpleSocket.pdb
+D:\项目管理\CSharp\SimpleSocket\ExampleClient\obj\Debug\ExampleClient.csprojResolveAssemblyReference.cache
+D:\项目管理\CSharp\SimpleSocket\ExampleClient\obj\Debug\ExampleClient.exe
+D:\项目管理\CSharp\SimpleSocket\ExampleClient\obj\Debug\ExampleClient.pdb
+D:\项目管理\CSharp\SimpleSocket\ExampleClient\bin\Debug\LitJson.dll

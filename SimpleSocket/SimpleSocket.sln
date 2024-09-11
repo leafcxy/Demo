@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleSocket", "SimpleSocket\SimpleSocket.csproj", "{F510F930-205B-481F-B78F-80C2B22EBDB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleServer", "ExampleServer\ExampleServer.csproj", "{D5C117E9-5103-400B-AF54-CDF3CF3F8138}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleClient", "ExampleClient\ExampleClient.csproj", "{9C42FE9C-13DA-4376-99DF-1A36967BB928}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F510F930-205B-481F-B78F-80C2B22EBDB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F510F930-205B-481F-B78F-80C2B22EBDB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F510F930-205B-481F-B78F-80C2B22EBDB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F510F930-205B-481F-B78F-80C2B22EBDB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5C117E9-5103-400B-AF54-CDF3CF3F8138}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5C117E9-5103-400B-AF54-CDF3CF3F8138}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5C117E9-5103-400B-AF54-CDF3CF3F8138}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5C117E9-5103-400B-AF54-CDF3CF3F8138}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C42FE9C-13DA-4376-99DF-1A36967BB928}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C42FE9C-13DA-4376-99DF-1A36967BB928}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C42FE9C-13DA-4376-99DF-1A36967BB928}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C42FE9C-13DA-4376-99DF-1A36967BB928}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

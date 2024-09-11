@@ -1,0 +1,5 @@
+D:\项目管理\CSharp\SimpleSocket\SimpleSocket\bin\Debug\SimpleSocket.dll
+D:\项目管理\CSharp\SimpleSocket\SimpleSocket\bin\Debug\SimpleSocket.pdb
+D:\项目管理\CSharp\SimpleSocket\SimpleSocket\obj\Debug\SimpleSocket.dll
+D:\项目管理\CSharp\SimpleSocket\SimpleSocket\obj\Debug\SimpleSocket.pdb
+D:\项目管理\CSharp\SimpleSocket\SimpleSocket\obj\Debug\SimpleSocket.csprojResolveAssemblyReference.cache
