@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Filip Jeremic</Authors>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Description>An extension library of System.Data.DataTable which provides extension methods for fully customizable pretty-printing of DataTable to an ASCII formatted string which can be displayed on the console or any text buffer.</Description>
+    <PackageProjectUrl>https://github.com/fjeremic/DataTablePrettyPrinter</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/fjeremic/DataTablePrettyPrinter</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageTags>DataTable;Print;PrettyPrint;Pretty-Print;Console;SQL</PackageTags>
+    <Version>0.2.0</Version>
+    <PackageReleaseNotes>Release notes:
+https://github.com/fjeremic/DataTablePrettyPrinter/releases</PackageReleaseNotes>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>
