@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS "ScanRecord" (
+	"id" INTEGER NOT NULL UNIQUE,
+	"scanList" TEXT NOT NULL,
+	"createTime" TIME NOT NULL,
+	PRIMARY KEY("id")
+);
