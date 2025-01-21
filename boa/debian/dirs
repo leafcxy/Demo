@@ -1,0 +1,6 @@
+usr/sbin
+etc/boa
+var/www
+var/log/boa
+usr/lib/boa
+etc/logrotate.d

@@ -1,0 +1,31 @@
+Source: boa
+Section: httpd
+Priority: optional
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Standards-Version: 3.9.4
+Build-Depends: autotools-dev,
+               bison,
+               debhelper (>= 9~),
+               flex,
+               po-debconf,
+               texinfo
+Homepage: http://www.boa.org/
+Vcs-Git: git://anonscm.debian.org/collab-maint/boa.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/boa.git
+
+Package: boa
+Architecture: any
+Provides: httpd,
+          httpd-cgi
+Depends: logrotate,
+         mime-support,
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Lightweight and high performance web server
+ Boa is a single-tasking HTTP server. That means that unlike
+ traditional web servers, it does not fork for each incoming
+ connection, nor does it fork many copies of itself to handle multiple
+ connections. It internally multiplexes all of the ongoing HTTP
+ connections, and forks only for CGI programs (which must be separate
+ processes). Preliminary tests show boa is capable of handling several
+ hundred hits per second on a 100 MHz Pentium.
