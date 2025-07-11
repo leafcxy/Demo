@@ -1,0 +1,106 @@
+<html>
+
+<!-- Mirrored from www.boa.org/recent-benchmarks.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Jun 2025 09:56:32 GMT -->
+<head>
+<title>Boa Webserver Benchmarks</title>
+</head>
+<body>
+Right now, we just have 2 benchmarks available.
+One is using zb (ZeusBench) and the other is using ab (ApacheBench).
+In these 2 particular tests, the client and server are both
+using rtl8139 (Realtek) chipset-based 10/100 ethernet cards,
+and both happen to be using the AMD Duron 750.
+<p>
+In addition, both machines are every-day desktop machines, which
+means that they are both running X, a half-dozen daemons including
+CUPS, Samba, NFS, and others, but there is no load on them.
+The network is a comprised of these machines and a 10/100 LinkSys
+5 port hub.
+<p>
+Also, please note that because Boa is a single-threaded web server,
+the load on the server never exceeded 1.00 (at least, not due
+to Boa. ;-)  Running CGI would, of course, be completely different.
+<p>
+First, zb.
+
+<pre>
+jnelson@client jnelson $ ./zb server /todo.txt -k -t 30 -c 215 
+
+---
+Server:                 Boa/0.94.12pre3
+Document Length:        2448
+Concurency Level:       215
+Time taken for tests:   4.736 seconds
+Complete requests:      20000
+Failed requests:        0
+Keep-Alive requests:    20003
+Bytes transfered:       53529637
+HTML transfered:        48968564
+Requests per seconds:   4222.97
+Transfer rate:          11302.71 kb/s
+
+Connnection Times (ms)
+           min   avg   max
+Connect:     0     0    11
+Total:       1    37  4704
+---
+
+jnelson@client jnelson $ ./ab http://server/todo.txt -k -t 30 -c 215 
+This is ApacheBench, Version 1.3d <$Revision: 1.58 $> apache-1.3
+Copyright (c) 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Copyright (c) 1998-2001 The Apache Group, http://www.apache.org/
+
+Benchmarking server (be patient)
+Completed 5000 requests
+Completed 10000 requests
+Completed 15000 requests
+Completed 20000 requests
+Completed 25000 requests
+Completed 30000 requests
+Completed 35000 requests
+Completed 40000 requests
+Completed 45000 requests
+Finished 50000 requests
+Server Software:        Boa/0.94.12pre3                                       
+Server Hostname:        server
+Server Port:            80
+
+Document Path:          /todo.txt
+Document Length:        2448 bytes
+
+Concurrency Level:      215
+Time taken for tests:   11.987 seconds
+Complete requests:      50000
+Failed requests:        0
+Broken pipe errors:     0
+Keep-Alive requests:    50005
+Total transferred:      133813585 bytes
+HTML transferred:       122412240 bytes
+Requests per second:    4171.19 [#/sec] (mean)
+Time per request:       51.54 [ms] (mean)
+Time per request:       0.24 [ms] (mean, across all concurrent requests)
+Transfer rate:          11163.23 [Kbytes/sec] received
+
+Connnection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0     0    0.6      0    10
+Processing:     1    48  312.8     26 11891
+Waiting:        1    48  312.8     26 11891
+Total:          1    48  313.2     26 11901
+
+Percentage of the requests served within a certain time (ms)
+  50%     26
+  66%     36
+  75%     44
+  80%     49
+  90%     76
+  95%    102
+  98%    140
+  99%    179
+ 100%  11901 (last request)
+jnelson@client jnelson $ 
+</pre>
+</body>
+
+<!-- Mirrored from www.boa.org/recent-benchmarks.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Jun 2025 09:56:32 GMT -->
+</html>

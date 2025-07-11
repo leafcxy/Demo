@@ -1,0 +1,109 @@
+<!doctype html public "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ 
+<!-- Mirrored from www.boa.org/y2k.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Jun 2025 09:56:32 GMT -->
+<head>
+  <title>Boa HTTP Server Y2K Readiness Statement</title>
+ </head>
+ <h1 align="center">Boa HTTP Server Year-2000 Readiness</h1>
+  <dl>
+   Q: Is <a href="index.html">Boa</a> Year 2000 compliant?
+   <dd>
+    A: Yes, Boa is Year 2000 compliant.
+   </dd>
+  </dl>
+
+  <p>
+   Boa internally never stores years as two digits.
+   On the HTTP protocol level, only RFC1123-style addresses are ever
+   generated.  To be compatible with older applications Boa
+   recognizes ANSI C's <code>asctime()</code> and
+   RFC850-/RFC1036-style date formats, too.
+   The <code>asctime()</code> format uses four-digit years,
+   but the RFC850 and RFC1036 date formats only define a two-digit year.
+   If an application attempts to code dates beyond 1999 in such a format,
+   Boa will still treat the two-digit year number as the number of years
+   since 1900.  The only way this is likely to cause grief is through
+   the "If-modified-since" feature of HTTP, causing a data transfer
+   when none was needed.  In English:
+   <blockquote>
+    <b>Client, on January 10, 2000:</b> "Please send me form 1040, but only if
+     it has changed since 05-Jan-00."<br>
+    <b>Boa:</b> "Hmm.  My copy of form 1040 is dated 05-Jan-2000, so the
+     client's copy is 100 years old.  I'll send them the update."
+   </blockquote>
+   So while the software is confused, and useless data clogs the network,
+   the client will probably show the user a valid document.
+
+  <p>
+   It is possible to hack <code>src/boa/util.c</code> to treat two-digit
+   RFC850/RFC1036 years between 0 and (insert your favorite crossover year
+   here) specially, but that only postpones the inevitable.  The General
+   Public License under which Boa is distributed guarantees you access to
+   the source code, so you may make any such change yourself, or pay someone
+   else to do so on your behalf, and redistribute copies of the program
+   with your changes made.
+
+  <p>
+   Although Boa is Year 2000 compliant, you may still get problems
+   if the underlying OS has problems with dates past year 2000
+   (e.g., OS calls which accept or return year numbers).  The Unix(TM)
+   and Unix-like systems for which Boa is designed generally store dates
+   internally as signed 32-bit integers which contain the number of seconds
+   since 1 January 1970, making the year 2000 irrelevant.
+   On 32-bit computers (and 32-bit data structures, for example in file
+   systems) one boundary to worry about is the year 2038, when that number
+   will roll negative if treated as a signed number.
+
+  <p>
+   The Boa HTTP Server project is an open-source software product of
+   a loose collection of individuals.  The project and its contributors
+   <b>cannot</b> and <b>do not</b> offer legal assurances regarding
+   any suitability of the software for your application.  The General
+   Public License (GPL)
+   under which Boa is distributed is explicitly written to allow free
+   competition for commercial support, where a market exists.  One would
+   expect the developers to have the most experience with the code, so
+   they are a logical first point of contact for both gratis and contract
+   support, should any be desired.
+
+  <p>
+   The Boa HTTP server software, like all information generally, is
+   distributed without any warranty.  This is spelled out in the following
+   disclaimer, found in the GPL:
+   <pre>
+                            NO WARRANTY
+
+  9. BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY
+FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW.  EXCEPT WHEN
+OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES
+PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED
+OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.  THE ENTIRE RISK AS
+TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU.  SHOULD THE
+PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING,
+REPAIR OR CORRECTION.
+
+  10. IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
+WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR
+REDISTRIBUTE THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES,
+INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING
+OUT OF THE USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED
+TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY
+YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER
+PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGES.
+   </pre>
+
+ <h2>Acknowledgement</h2>
+  The Boa developers would like to thank and acknowledge the
+  <a href="http://www.apache.org/">Apache</a> Project, for providing a template
+  Y2K statement from which this was derived.
+  
+ <hr>
+  <a href="mailto:ldoolitt@boa.org">Larry Doolittle</a><br>
+  September 18, 1999
+ </body>
+
+<!-- Mirrored from www.boa.org/y2k.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Jun 2025 09:56:32 GMT -->
+</html>

@@ -1,0 +1,1373 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  
+<!-- Mirrored from www.boa.org/news.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Jun 2025 09:54:31 GMT -->
+<head>
+    <title>Boa Webserver</title>
+  </head>
+
+  <body>
+    <h1>Boa Webserver</h1>
+    <img src="boa_banner.png"
+         alt="Do You Feel the Need for Speed?"> <br>
+     Larry Doolittle and Jon Nelson
+
+    <table border="1" summary="descriptive changes">
+      <tr>
+        <td><b>23 Feb 2005 - Version 0.94.14rc21 released!</b></td>
+      </tr>
+
+      <tr>
+        <td>The gzip tarball (199,950 bytes) is <a href="boa-0.94.14rc21.tar.gz">here</a> and the detached signature
+        for the tarball is <a href="boa-0.94.14rc21.tar.gz.asc">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>The bzip2 tarball (165,622 bytes) is <a href="boa-0.94.14rc21.tar.bz2">here</a> and the detached
+        signature for the tarball is <a href="boa-0.94.14rc21.tar.bz2.asc">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>Version 0.94.14rc21 can be considered a cleanup release,
+	in preparation for the final (really!) 0.94.14 copy.  If no
+	problems are found, expect that final release in a week or two.
+	The code now passes modern GCC on 32-bit and 64-bit
+	architectures with no warnings, even with the the warning level
+	turned insanely high (see GCC_FLAGS in src/Makefile.in).
+        <p>
+        The relevant additions to the changelog are:
+        <pre>
+ * shift from GNU Autoconf 2.58 to GNU Autoconf 2.59
+ * increase warning level in GCC_FLAGS another notch
+ * skip superfluous unsigned qualifier for char in get_alias_hash_value
+ * skip check for error in umask(), since it doesn't happen
+ * reorder read_config_files() and create_common_env()
+ * drop incorrect preprocessor usage in TIMEZONE macro
+ * make bloody sure default_type is set
+ * correct error message in index_dir for .gz files
+ * make mmap_cache 64-bit clean
+ * try to deal with signed file offsets when using sendfile()
+ * clean up signed/unsigned char issues in read_header()
+ * use socklen_t where appropriate in request.c
+ * call range_pool_empty() in response to SIGHUP
+ * add more const qualifiers
+ * eliminate signed/unsigned comparison warnings: change ka_timeout to signed
+ * spelling fixes
+ * miscellaneous whitespace changes
+ * update Copyright dates
+ * drop webindex.pl
+        </pre>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td><b>10 June 2004 - Version 0.94.14rc20 released!</b></td>
+      </tr>
+
+      <tr>
+        <td>The gzip tarball (200,395 bytes) is <a href="boa-0.94.14rc20.tar.gz">here</a> and the detached signature
+        for the tarball is <a href="boa-0.94.14rc20.tar.gz.asc">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>The bzip2 tarball (166,433 bytes) is <a href="boa-0.94.14rc20.tar.bz2">here</a> and the detached
+        signature for the tarball is <a href="boa-0.94.14rc20.tar.bz2.asc">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>Version 0.94.14rc20 fixes an additional multi-range
+        response bug found on June 8th, and a host of other small
+        improvements.  A potential invalid memory access has
+        also been fixed.  Lastly, the rpm spec files and support
+        files have been made at least partially SuSE-aware.
+        Many of the changes pertain to increasing use of
+        <a href="http://www.splint.org/">splint</a>.
+        <p>
+        The relevant additions to the changelog are:
+        <pre>
+ * fix potential NULL-pointer dereference in hash_insert, introduced
+   in 0.94.14rc16.
+ * try to make SuSE-ready:
+   rpm/{boa.init, boa.init-redhat, boa.init-suse, boa.spec}
+ * use S_ISREG combined with access(2) rather than
+   using the statbuf stuff to determine if a cgi is accessible
+ * optionally #define EXIT_FAILURE and EXIT_SUCCESS, and use them
+   everywhere.
+ * mark a few variables and functions 'static'
+ * use %u instead of %d when printing an unsigned int
+ * mmap returns void * not char *
+ * change access_node->type to an enum
+ * make boa.h #include 'config.h' *first*
+ * use -1 instead of ULONG_MAX (that way, if the datatype ever changes,
+   we always get it's maximum)
+ * fix bug in multiple non-contiguous range requests for files that
+   use sendfile(2)
+ * reduce some noise if a request in a keepalive chain is shut down
+   without having read a single byte.
+ * fix potential memory access bug in hashing
+ * update config.sub and config.guess to the latest available
+ * use CHANGES not ChangeLog
+        </pre>
+        </td>
+      </tr>
+
+     <tr>
+        <td><b>29 March 2004 - Version 0.94.14rc19 released!</b></td>
+      </tr>
+
+      <tr>
+        <td>The gzip tarball (198,058 bytes) is <a href="boa-0.94.14rc19.tar.gz">here</a> and the detached signature
+        for the tarball is <a href="boa-0.94.14rc19.tar.gz.asc">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>The bzip2 tarball (164,400 bytes) is <a href="boa-0.94.14rc19.tar.bz2">here</a> and the detached
+        signature for the tarball is <a href="boa-0.94.14rc19.tar.bz2.asc">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>Version 0.94.14rc19 fixes some multi-range responses,
+        and adds a few otherwise minor detail changes and feature
+        improvements.  Most of the items below are general code
+        readability improvements or refactoring. The only bugfixes in
+        this release pertain to multi-part range responses, and one
+        very small bug (Boa was being a bit too pedantic) regarding
+        blank header values in headers; Boa now accepts the empty
+        header value silently.
+
+        <p>
+        The relevant additions to the changelog are:
+        <pre>
+ * change many instances of log_error_mesg + send_r_error to boa_perror
+ * set timezone right away at program startup
+ * add new_clean_pathname from now-defunct 0.95 branch
+   (unused via #if 0)
+ * change common_cgi_env to be dynamically sized, using realloc.
+ * add new keyword, CGIEnv, which takes 2 parameters and adds them as
+   the key and value of another common environment variable for CGI.
+   This item requires the previous change.
+ * split modified_since into 2 routines:
+   date_to_tm, which parses various date formats into a 'struct tm', and
+   modified_since, which then just compares the struct tm to the
+    items from a statbuf.
+ * remove fake status codes R_413 and R_415, and manually set
+   R_REQUEST_URI_TOO_LONG to 414 and R_INVALID_RANGE to 416
+ * move CRLF macro definition to defines.h
+ * use CRLF macro everywhere
+ * don't print content-length in print_partial_content_continue
+ * remove extra CRLF in print_partial_content_done
+ * *do* print content-length in 206 response's "primary" headers IFF There
+   is only 1 range.
+ * move CRLF in 206 *after* to the print_partial_content_continue
+ * in 503, remove \r from the human-readable message.
+ * #define and use CRLF macro, fix some tabs/spaces issues
+ * in date_to_tm, use 70 not 50 as the cutoff date (makes sense, 1970)
+ * adapt some code from Squid to return -1 in date_to_tm on invalid dates
+   (seconds > 59, etc...)
+ * implement ConcealServerIdentity
+ * treat headers with blank content as non-error but do not parse them
+        </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>08 December 2003 - Version 0.94.14rc18 released!</b></td>
+      </tr>
+
+      <tr>
+        <td>The gzip tarball (195,950 bytes) is <a href="boa-0.94.14rc18.tar.gz">here</a> and the detached signature
+        for the tarball is <a href="boa-0.94.14rc18.tar.gz.asc">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>The bzip2 tarball (162,657 bytes) is <a href="boa-0.94.14rc18.tar.bz2">here</a> and the detached
+        signature for the tarball is <a href="boa-0.94.14rc18.tar.bz2.asc">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>
+          This is 0.94.14rc18.  This is a cleanup release, and is the
+          result of continuing efforts to clean and improve the code.  It
+          is likely that the most important change is the last,
+          pertaining to multipart range responses.  I got the order of
+          some responses wrong.
+          <p>
+          The relevant additions to the changelog are:
+          <pre>
+ * add log_error_mesg_fatal, which does log_error_mesg and then exits
+ * fix malloc thinko in buffer code
+ * use ULONG_MAX instead of -1 to describe unbounded ranges
+ * log '-' instead of req->logline if req->logline is undefined
+ * remove some superflous send_r_error statements.
+ * fix a logic inversion regarding QUIET_DISCONNECT
+ * move rate limit code very slightly, and force http version of 1.0
+ * move req->ka_count decrement out of sanitize_request
+ * /always/ issue log_access in free_request
+ * use BOA_FD_CLR to clear file descriptors out of the FD_SETs that
+   they might be in.
+ * disable keepalive when response status is 0 or >= 500
+ * update a comment regarding the 100 Continue response
+ * use BOA_READ and BOA_WRITE macros in select.c
+ * backport (but leave it commented out) USE_SETRLIMIT stuff for cgi's
+ * backport DEBUG debugging and logging code
+   disable with --disable-verbose (worth about 4K of binary size)
+ * split out usage and parsing commandline tasks into their own functions
+   (usage and parse_commandline)
+ * in poll.c, don't just check for BOA_READ, but handle all "error"
+   conditions first, then check for /any/ revent.
+ * force response code to 400 when client closes connection before request
+   is fully read.
+ * use code 408 to indicate timed-out response
+ * use isalnum instead of isalpha to verify hostname as per Alan's
+   suggestion
+ * fix 2 copy-and-paste error messages in mmap_cache.c (error message
+   was wrong)
+ * add and use TIMED_OUT state for requests that time out.
+ * reset signals (in child process) after forking for CGI
+ * fix multipart range responses
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>24 March 2003 - Updates to uClinux info</b></td>
+      </tr>
+      <tr>
+        <td>Corrected the location of uClinux.</td>
+      </tr>
+
+
+      <tr>
+        <td><b>11 March 2003 - Version 0.94.14rc17 released!</b></td>
+      </tr>
+
+      <tr>
+        <td>The gzip tarball (172,209 bytes) is <a href="boa-0.94.14rc17.tar.gz">here</a> and the detached signature
+        for the tarball is <a href="boa-0.94.14rc17.tar.gz.asc">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>The bzip2 tarball (145,438 bytes) is <a href="boa-0.94.14rc17.tar.bz2">here</a> and the detached
+        signature for the tarball is <a href="boa-0.94.14rc17.tar.bz2.asc">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>
+          This is 0.94.14rc17.  This is a cleanup release, and is the
+          result of continuing efforts to clean and improve the code.
+          <p>
+          The relevant additions to the changelog are:
+          <pre>
+ * #define QUIET_DISCONNECT to silence read and write errors to client
+ * when range requests are determined to be invalid, use log_error_doc
+ * make log messages when URI contains invalid characters or doesn't
+   start with a '/' less scary
+ * if creating a temporary file, or setting it to close-on-exec fails,
+   send_r_error
+ * if key or value for an http header is invalid, log it.
+ * be more strict with range parsing
+ * handle 0-byte sendfile attempt better
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>22 February 2003 - Version 0.94.14rc16
+        released!</b></td>
+      </tr>
+
+      <tr>
+        <td>The gzip tarball (171,296 bytes) is <a href="boa-0.94.14rc16.tar.gz">here</a> and the detached signature
+        for the tarball is <a href="boa-0.94.14rc16.tar.gz.asc">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>The bzip2 tarball (144,827 bytes) is <a href="boa-0.94.14rc16.tar.bz2">here</a> and the detached
+        signature for the tarball is <a href="boa-0.94.14rc16.tar.bz2.asc">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>
+          This is 0.94.14rc16.  This is a cleanup release.  An extensive
+          effort was made to generally improve the code.
+          <p>
+          The relevant additions to the changelog are:
+          <pre>
+ * be more stringent about verifying that all of the proper variables got
+   allocated in create_common_env
+ * when unable to add an environment to the CGI space, note what the key
+   and values are to the error log.
+ * use log_error_doc instead of log_error_time in some places
+ * make sure to _exit if strdup fails in create_argv
+ * DO NOT accept control characters in the http header stream
+ * DO NOT accept control characters in the decoded URI
+ * warn when the hash function is sent an NULL or empty value
+ * warn when find_alias is sent a uri_len of 0.
+ * clean up and fix some of the path construction code paths
+ * add log_error_doc in some places
+ * when checking for a user home dir, if the full URI is "/~" then
+   log it and send back a bad request response
+ * mild clean up of req_write_escape_html
+ * refactor code so all hash functions start with hash
+ * check for and complain about empty or NULL keys and values
+   in the various hash function
+ * change the maximum number of environment variables to 100 from 50
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+
+        <td><b>18 February 2003 - Version 0.94.14rc15
+        released!</b></td>
+      </tr>
+
+      <tr>
+        <td>The gzip tarball (170,118 bytes) is <a href="boa-0.94.14rc15.tar.gz">here</a> and the detached signature
+        for the tarball is <a href="boa-0.94.14rc15.tar.gz.asc">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>The bzip2 tarball (143,735 bytes) is <a href="boa-0.94.14rc15.tar.bz2">here</a> and the detached
+        signature for the tarball is <a href="boa-0.94.14rc15.tar.bz2.asc">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>
+
+          This is 0.94.14rc15.  This is a very important release.
+An segmentation fault problem was discovered that could be triggered
+from the network, causing a Denial of Service.  We do not think this is
+normally exploitable outside of a DoS.  There are a few minor fixes and
+improvements as well, but all users of the 0.94.14rc series should
+upgrade to 0.94.14rc15 as soon as possible.
+          <p>
+          The relevant additions to the changelog are:
+          <pre>
+ * fix a potential NULL-pointer dereference when generating
+   CGI environment variables *and* we are extremely low on memory
+ * when unable to set new sockets to non-block or close-on-exec, don't
+   just warn, also close it down and place on the free list.
+ * use log_error_doc in some places instead of log_error_time
+ * clean up logline parsing.  This fixes a potential sigseg!
+ * fix use of ACCEPT_ON #define in process_option_line
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>17 February 2003 - Problem Solved</b></td>
+      </tr>
+
+      <tr>
+        <td>Thanks again to one of our users, we think we've
+        tracked down the problem, and it effects all versions of
+        Boa starting with 0.94.14rc4. (four, not fourteen). The
+        problem is a potential *huge* memcpy and overwriting of
+        memory. We don't know if the problem is exploitable for
+        other than DoS. All 0.94.14 release candidates have been
+        pulled.</td>
+      </tr>
+
+      <tr>
+        <td><b>13 February 2003 - Problem with 0.94.14*</b></td>
+      </tr>
+
+      <tr>
+        <td>An unknown problem with 0.94.14* was just reported by
+        one of our users. Until the nature of the problem can be
+        determined, it is recommended that everyone continue using
+        0.94.13.</td>
+      </tr>
+
+      <tr>
+        <td><b>7 February 2003 - Version 0.94.14rc14
+        released!</b></td>
+      </tr>
+
+      <tr>
+        <td>The gzip tarball (169,464 bytes) is <a href=
+        "boa-0.94.14rc14.tar.html">here</a> and the detached
+        signature for the tarball is <a href=
+        "boa-0.94.14rc14.tar.gz.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>The bzip2 tarball (143,343 bytes) is <a href=
+        "boa-0.94.14rc14.tar-2.html">here</a> and the detached
+        signature for the tarball is <a href=
+        "boa-0.94.14rc14.tar.bz2.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>
+          This is 0.94.14rc14. This is a minor cleanup of rc13.
+
+          <p>The relevant additions to the changelog are:</p>
+<pre>
+ * fix more spelling errors (LRD) and remove use of const int
+ * better sa_family_t detection on *BSD (Peter Pentchev)
+
+</pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Also, if anybody can provide us with documentation on
+        how sendfile on Solaris works, that would be cool.</td>
+      </tr>
+
+      <tr>
+        <td>Another note: I (JDN) spent quite a bit of time
+        cleaning up the documentation, which I had turned into
+        DocBook XML. You can find the alternate form of the
+        documentation in html form <a href=
+        "new_docs/manual/index.html">here</a>. Note that the documentation
+        is now covered under the GFDL. No determination has been
+        made as to whether the texinfo docs will continue to be
+        maintained, the DocBook XML will replace it, or some other
+        course of action will occur. We'd be interested in your
+        comments.</td>
+      </tr>
+
+      <tr>
+        <td><b>23 January 2003 - Version 0.94.14rc13
+        released!</b></td>
+      </tr>
+
+      <tr>
+        <td>The gzip tarball (169,280 bytes) is <a href=
+        "boa-0.94.14rc13.tar.html">here</a> and the detached
+        signature for the tarball is <a href=
+        "boa-0.94.14rc13.tar.gz.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>The bzip2 tarball (142,929 bytes) is <a href=
+        "boa-0.94.14rc13.tar-2.html">here</a> and the detached
+        signature for the tarball is <a href=
+        "boa-0.94.14rc13.tar.bz2.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>
+          This is 0.94.14rc13. This release improves select and
+          poll somewhat, and helps to avoid out-of-file errors as
+          well. It also fixes the __func__ support introduced with
+          rc12.
+
+          <p>The relevant additions to the changelog are:</p>
+<pre>
+ * force select and poll to always be included in dependency stuff
+ * fix use of HAVE_FUNC
+ * if FD_SETSIZE is undefined, set MAX_FD to OPEN_MAX instead of
+   arbitarily setting it to 2048.
+ * improve the poll code slightly
+ * give Boa more breathing room WRT MaxConnections and total current
+   connections -- currently simply set at 20.
+ * forcibly clear the server_s from the block_read_fdset when it won't
+   be checked.
+
+</pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>22 January 2003 - Version 0.94.14rc12
+        released!</b></td>
+      </tr>
+
+      <tr>
+        <td>The gzip tarball (168,737 bytes) is <a href=
+        "boa-0.94.14rc12.tar.html">here</a> and the detached
+        signature for the tarball is <a href=
+        "boa-0.94.14rc12.tar.gz.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>The bzip2 tarball (142,721 bytes) is <a href=
+        "boa-0.94.14rc12.tar-2.html">here</a> and the detached
+        signature for the tarball is <a href=
+        "boa-0.94.14rc12.tar.bz2.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>
+          This is 0.94.14rc12. This is pretty much a minor clean up
+          release -- a new directive, 'DefaultCharset' has been
+          added, boa.texi has been updated to include some missing
+          directives, and some otherwise fairly minor changes have
+          been made.
+
+          <p>The relevant additions to the changelog are:</p>
+<pre>
+ * check for and use __func__, a C99 construct that is used
+   in the DIE and WARN macros to also describe the name of the current
+   function.
+ * fix a very minor IPv6 issue, and include netdb.h in compat.h so that
+   NI_MAXHOST is defined for IPv6
+ * when we can't mmap a file, fall back to IOSHUFFLE.  If we couldn't
+   mmap the file due to an error in mmap or madvise, report the error,
+   otherwise it is safe to assume we simply ran out of hash table space.
+ * The following 2 changes borrowed from Hydra (which is itself
+   based on Boa):
+   * Some optimizations in HTTP header parsing.
+   * Added DefaultCharset configuration directive. The default
+     character set given, will be appended to all text mime types.
+ * update boa.texi with some missing configuration directives
+
+</pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>14 January 2003 - Version 0.94.14rc11
+        released!</b></td>
+      </tr>
+
+      <tr>
+        <td>The gzip tarball (166,649 bytes) is <a href=
+        "boa-0.94.14rc11.tar.html">here</a> and the detached
+        signature for the tarball is <a href=
+        "boa-0.94.14rc11.tar.gz.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>The bzip2 tarball (141,368 bytes) is <a href=
+        "boa-0.94.14rc11.tar-2.html">here</a> and the detached
+        signature for the tarball is <a href=
+        "boa-0.94.14rc11.tar.bz2.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>
+          This is 0.94.14rc11 - 'HEAD' method is back, and the
+          annoying "connection timed out bug" is also fixed. Also,
+          a *huge* (54KB) patch went in to change many signed ints
+          to unsigned ints, add the "const" and "static" keywords
+          where appropriate, and make otherwise very few changes.
+
+          <p>The relevant additions to the changelog are:</p>
+<pre>
+ * fix 'HEAD' requests (bug introduced in rc6)
+ * *huge* patch to try to eliminate shadow variables, use unsigned ints
+   instead of signed ints, and "const" where appropriate.
+
+</pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>10 January 2003 - Version 0.94.14rc10
+        released!</b></td>
+      </tr>
+
+      <tr>
+        <td>The gzip tarball (166,403 bytes) is <a href=
+        "boa-0.94.14rc10.tar.html">here</a> and the detached
+        signature for the tarball is <a href=
+        "boa-0.94.14rc10.tar.gz.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>The bzip2 tarball (140,923 bytes) is <a href=
+        "boa-0.94.14rc10.tar-2.html">here</a> and the detached
+        signature for the tarball is <a href=
+        "boa-0.94.14rc10.tar.bz2.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>
+          This is 0.94.14rc10 - A few bugs found and squished, and
+          some other improvements.
+
+          <p>The relevant additions to the changelog are:</p>
+<pre>
+ * change to using PF_ prefix instead of AF_ prefix (PF_ is POSIX?)
+ * fix copying too-much-memory (read-side, write-side was OK) in
+   ascii_sockaddr.  Also optimize slightly (note, may actually be a wee
+   slower due to strlen check -- is there a way around this?)
+ * fix a few shadow variable problems and improve select and poll loops
+ * check for and use madvise (may or may not help)
+ * update depends (the cause of SIGSEGs when ./configure was re-run to
+   switch from select to poll, *without* running make clean)
+ * always remove select.o and poll.o (and access.o) because these are
+   the usual conditional files.
+ * if we aren't using IPv6, define BOA_NI_MAXHOST to 20. 1025 is
+   far too huge for a single IPv4 IP address in dotted-quad notation.
+ * move access_init to earlier in the config reading
+ * allow a MAX_FILE_MMAP value of 0 to mean "always mmap"
+
+</pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>1 January 2003 - Version 0.94.14rc9
+        released!</b></td>
+      </tr>
+
+      <tr>
+        <td>The gzip tarball (166,655 bytes) is <a href=
+        "boa-0.94.14rc9.tar.html">here</a> and the detached signature
+        for the tarball is <a href=
+        "boa-0.94.14rc9.tar.gz.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>The bzip2 tarball (140,212 bytes) is <a href=
+        "boa-0.94.14rc9.tar-2.html">here</a> and the detached
+        signature for the tarball is <a href=
+        "boa-0.94.14rc9.tar.bz2.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>
+          This is 0.94.14rc9 - a few changes to the configure
+          system, completely rewritten loops for select and poll,
+          and much better support for ranges in requests. A few
+          bugs fixed.
+
+          <p>The relevant additions to the changelog are:</p>
+<pre>
+ * fix reversed argument passing in add_mime_type
+ * disable-gunzip support
+ * capitalization changes, etc.. to configure.in
+ * use slightly newer AC_DEFINE 3-argument style in configure.in
+ * add new member of struct, bytes_written, and use it to more accurately
+   report the number of bytes actually written to the socket.
+ * When sendfile(2) reports ECONNRESET treat it like EPIPE, which is to
+   say silently shut it down and don't be noisy about logging it.
+ * wrap sa_family_t typedef in
+   #ifdef DONT_HAVE_SA_FAMILY_T
+   to deal with non-POSIX (1g) systems (Cygwin?)
+ * add req-&gt;bytes_written member variable, and use it instead of filepos
+ * apply Peter Korsgaard's "configure --help" patch
+ * apply Peter Korsgaard's "configure --disable-gunzip" patch
+ * use newer 3-argument AC_DEFINE
+ * update config.sub and config.guess
+ * clean up and update configure.in somewhat
+ * don't close stderr in terminal signal handlers
+ * free range pool and server_name in (final) sigterm handler
+ * refactor select and poll loops
+
+</pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>13 December 2002 - Version 0.94.14rc8
+        released!</b></td>
+      </tr>
+
+      <tr>
+        <td>The gzip tarball (163,202 bytes) is <a href=
+        "boa-0.94.14rc8.tar.html">here</a> and the detached signature
+        for the tarball is <a href=
+        "boa-0.94.14rc8.tar.gz.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>The bzip2 tarball (137,559 bytes) is <a href=
+        "boa-0.94.14rc8.tar-2.html">here</a> and the detached
+        signature for the tarball is <a href=
+        "boa-0.94.14rc8.tar.bz2.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>This is 0.94.14rc8 - one more range related fix, Linux
+        only when using sendfile, and file was &gt; 100K, and range
+        *started* after 0 bytes. Also a few *BSD fixes, basic
+        access by sunsite.dk (note, it's disabled by default, would
+        someone else please look through it?), and finally a few
+        fixes: one for a backwards ordering in the add_mime_type
+        function, and a fix for the check-for-broken-setuid check
+        in boa.c -- root *is* a legal user. This release also
+        includes some sprintf removals -- I think it won't be long
+        before boa starts using a string library of some kind,
+        probably something in-house, possibly patterned after a
+        djb-like string handling mechanism, or perhaps the string
+        mechanism used by GNUTLS.</td>
+      </tr>
+
+      <tr>
+        <td><b>24 November 2002 - Version 0.94.14rc7
+        released!</b></td>
+      </tr>
+
+      <tr>
+        <td>The gzip tarball (160,521 bytes) is <a href=
+        "boa-0.94.14rc7.tar.html">here</a> and the detached signature
+        for the tarball is <a href=
+        "boa-0.94.14rc7.tar.gz.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>The bzip2 tarball (135,601 bytes) is <a href=
+        "boa-0.94.14rc7.tar-2.html">here</a> and the detached
+        signature for the tarball is <a href=
+        "boa-0.94.14rc7.tar.bz2.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>This is 0.94.14rc7 - several 'range'-related bug fixes,
+        including an inadvertant memory overwrite resulting in
+        eventual corruption -- introduced in rc4 or rc5. Please
+        give this a <b>thorough</b> testing, as this includes
+        "range" (resume) support.</td>
+      </tr>
+
+      <tr>
+        <td><b>23 November 2002 - Version 0.94.14rc6
+        released!</b></td>
+      </tr>
+
+      <tr>
+        <td>The gzip tarball (160,493 bytes) is <a href=
+        "boa-0.94.14rc6.tar.html">here</a> and the detached signature
+        for the tarball is <a href=
+        "boa-0.94.14rc6.tar.gz.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>The bzip2 tarball (135,736 bytes) is <a href=
+        "boa-0.94.14rc6.tar-2.html">here</a> and the detached
+        signature for the tarball is <a href=
+        "boa-0.94.14rc6.tar.bz2.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>This is 0.94.14rc6 - changes include fixes to Range
+        support, support for Range with large files on non-Linux
+        platforms, and some Range-related bugfixes. Please give
+        this a <b>thorough</b> testing, as this includes "range"
+        (resume) support.</td>
+      </tr>
+
+      <tr>
+        <td><b>22 November 2002</b></td>
+      </tr>
+
+      <tr>
+        <td>Try not to use 0.94.14rc5 for now, jnelson found some
+        annoying bugs in it. Fixes are forthcoming.</td>
+      </tr>
+
+      <tr>
+        <td><b>20 November 2002 - Version 0.94.14rc5
+        released!</b></td>
+      </tr>
+
+      <tr>
+        <td>The gzip tarball (160,276 bytes) is <a href=
+        "boa-0.94.14rc5.tar.html">here</a> and the detached signature
+        for the tarball is <a href=
+        "boa-0.94.14rc5.tar.gz.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>The bzip2 tarball (135,480 bytes) is <a href=
+        "boa-0.94.14rc5.tar-2.html">here</a> and the detached
+        signature for the tarball is <a href=
+        "boa-0.94.14rc5.tar.bz2.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>
+          This is 0.94.14rc5 - changes include:
+<pre>
+ * update specfile (thanks to Supreet Sethi via SourceForge)
+ * support optional config file name argument
+ * tentatively support Ranges
+</pre>
+          Please give this a <b>thorough</b> testing, as this
+          includes "range" (resume) support. (At least, for all
+          platforms, and for files &gt; 100K, on Linux).
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>29 October 2002 - Version 0.94.14rc4
+        released!</b></td>
+      </tr>
+
+      <tr>
+        <td>The gzip tarball (157,830 bytes) is <a href=
+        "boa-0.94.14rc4.tar.html">here</a> and the detached signature
+        for the tarball is <a href=
+        "boa-0.94.14rc4.tar.gz.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>The bzip2 tarball (133,834 bytes) is <a href=
+        "boa-0.94.14rc4.tar-2.html">here</a> and the detached
+        signature for the tarball is <a href=
+        "boa-0.94.14rc4.tar.bz2.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>
+          This is 0.94.14rc4 - changes include:
+<pre>
+ * add conditional support for http/1.1
+ * replace many #defines with enumerations
+</pre>
+          Note - no range support is included quite yet, but it's
+          very close. It's very likely that the next version will
+          support range and multipart/range.
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>26 October 2002 - Version 0.94.14rc3
+        released!</b></td>
+      </tr>
+
+      <tr>
+        <td>The gzip tarball (154,366 bytes) is <a href=
+        "boa-0.94.14rc3.tar.html">here</a> and the detached signature
+        for the tarball is <a href=
+        "boa-0.94.14rc3.tar.gz.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>The bzip2 tarball (131,369 bytes) is <a href=
+        "boa-0.94.14rc3.tar-2.html">here</a> and the detached
+        signature for the tarball is <a href=
+        "boa-0.94.14rc3.tar.bz2.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>This is 0.94.14rc3 - changes include a fix to aliasing
+        introduced in 0.94.14rc2, and some small backports from
+        0.95 to aid debugging. The backported code makes no
+        run-time changes unless you edit the source file.</td>
+      </tr>
+
+      <tr>
+        <td><b>26 October 2002 - Version 0.94.14rc2
+        released!</b></td>
+      </tr>
+
+      <tr>
+        <td>The gzip tarball (154,054 bytes) is <a href=
+        "boa-0.94.14rc2.tar.html">here</a> and the detached signature
+        for the tarball is <a href=
+        "boa-0.94.14rc2.tar.gz.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>The bzip2 tarball (131,050 bytes) is <a href=
+        "boa-0.94.14rc2.tar-2.html">here</a> and the detached
+        signature for the tarball is <a href=
+        "boa-0.94.14rc2.tar.bz2.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>This is 0.94.14rc2 - the only change is a revised
+        configuration parsing system which no longer relies on lex
+        or yacc -- there are simply too many incompatible versions
+        out there. I also ran the source through 'indent'
+        again.</td>
+      </tr>
+
+      <tr>
+        <td><b>20 October 2002 - Version 0.94.14rc1
+        released!</b></td>
+      </tr>
+
+      <tr>
+        <td>The gzip tarball (154,709 bytes) is <a href=
+        "boa-0.94.14rc1.tar.html">here</a> and the detached signature
+        for the tarball is <a href=
+        "boa-0.94.14rc1.tar.gz.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>The bzip2 tarball (133,006 bytes) is <a href=
+        "boa-0.94.14rc1.tar-2.html">here</a> and the detached
+        signature for the tarball is <a href=
+        "boa-0.94.14rc1.tar.bz2.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>Boa 0.94.14 incorporates many features that have been
+        waiting for quite some time, not the least of which is a
+        stab at name-based virtualhosting, sendfile support (on
+        Linux), much better cross-platform compilation, better
+        heavy-load performance, poll(2) support, many tweaks and a
+        good dose of fine-tuning. The default behavior for Boa has
+        not changed substantially, so most people should have a
+        completely seamless upgrade, but the new functionality is
+        there for people to use. Note one bonus is now being able
+        to use Boa with supervise from daemontools or freedt.</td>
+      </tr>
+
+      <tr>
+        <td>
+          The ChangeLog entries for 0.94.14rc1 are as follows:
+<pre>
+** Changes from 0.94.13 to 0.94.14
+ * SUBSTANTIALLY UPDATE AUTOCONF SYSTEM
+   - all of the autoconf stuff is now located in the top level
+     directory, and creates the appropriate Makefiles for building
+     the system and documentation.
+ * add [optional, Linux-only] check for sendfile system call
+ * add new state, IOSHUFFLE, which utilizes sendfile (or
+   emulates it using the request's buffer, otherwise)
+ * make the default socket size 32K.  The client_stream_size stays constant
+   at 8K, and the new 'buffer' size is 4K
+   Note also that the new code uses the "default" socket buffer size
+   it obtains with the first accept()ed socket.
+ * use setjmp, instead of sigsetjmp (we dont mess with the signal mask
+   so why bother!  it's one less syscall)
+ * explicitly set pending_requests to 0 in select.c when sigterm_flag has
+   been set, and also when the server socket is *not* set despite checking
+   for it.
+ * make default behavior be to leave stderr alone, but tie it
+   to cgilog otherwise
+ * add initial vhost_root support
+ * remove support for normalize_path
+ * use --disable-sendfile to disable sendfile support
+   sendfile support for files &gt; 100K is default, now.
+   It's significantly faster and easier than the alternative
+ * add "Host" header support to CGI environment
+ * umask ~0770 before exec
+ * backport hash.c from 0.95 and use fnv1a hash (see CREDITS)
+ * don't set stderr close-on-exec
+ * make some minor for very useful optimizations in the read/write
+   loop for CGIs
+ * make some adjustments for Solaris and other platforms
+ * add yyerror function definition to boa_lexer.l
+ * tie stdout to the access_log, unless there is no access_log,
+   in which case tie it to /dev/null
+ * use sensible defaults for umask (077) and (027 for CGI)
+ * add and document new parameters (CGILog and CGIumask)
+ * vast improvements to the cgi-test.cgi program, by Jon Nelson
+   and Landon Curt Noll.
+ * next 3 items by Don Mahurin (patches modified somewhat):
+ * pidfile patch
+ * default mime_types patch
+ * NCSA environment environment variables wrapped in
+   #ifdef USE_NCSA_CGI_ENV
+ * fix some escaping issues with the directory indexer
+   (Ulf Harnhammar)
+ * backport poll support from 0.95
+</pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>October 4-5 2002 - Developer's Conference
+        2002!</b></td>
+      </tr>
+
+      <tr>
+        <td>Larry and one of his sons stayed at Jon's house October
+        4-5, 2002. While the reasons were unrelated to Boa
+        development, and in fact Larry and Jon spent only a few
+        hours discussing Boa, computers, and the Free World, it
+        seemed appropriate to refer to the event as a Developer's
+        Conference. <a href="larry_and_jon.jpg">Here</a> is a
+        picture of Larry and Jon at Jon's house. (Left to right:
+        Jon, Larry). Please forgive my really bad digital
+        camera.</td>
+      </tr>
+
+      <tr>
+        <td><b>30 July 2002 - Version 0.94.13 released!</b></td>
+      </tr>
+
+      <tr>
+        <td>The tarball (122,066 bytes) is <a href=
+        "boa-0.94.13.tar.gz">here</a> and the detached signature
+        for the tarball is <a href=
+        "boa-0.94.13.tar.gz.asc">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>Boa 0.94.13 is primarily a "clean up" release, which
+        means that most of the changes made are to improve the
+        overall quality of the code, without introducing many new
+        features. There are some bug fixes, and some new features,
+        but the overall changes have been to do a better job of
+        checking the results of system calls and memory
+        allocations.</td>
+      </tr>
+
+      <tr>
+        <td>
+          The ChangeLog entries for 0.94.13 are as follows:
+<pre>
+** Changes from 0.94.12 to 0.94.13
+ * Change many instances of log_error_mesg + exit to DIE macro
+ * Change all instance of log_error_mesg (without exit) to WARN macro
+ * do a much better job of checking return values from malloc and
+   especially strdup.
+ * check results of calling umask and getrlimit
+ * server_s is no longer a global int
+ * check results of fork via switch instead of if (fork())
+ * check for getopt.h and include it if found
+ * remove unused #defines, and add WARN macro, and replace
+   many calls to log_error_mesg(..) with WARN macro
+ * fix bug in get_commonlog_time where time_offset calculation was
+   the opposite of what it should be ('-' and '+' were swapped)
+ * fix compatability bug with old and newer versions of flex/yacc
+ * add check for AC_FUNC_MMAP to configure.in
+ * fix really lame thinko in normalize_path, which would prepend the
+   results of earlier calls to results from later calls
+ * Add MaxConnections, a configuration directive which allows the
+   user to specify the maximum number of connections that Boa will
+   accept concurrently.
+ * add SERVER_ADDR and REQUEST_URI to environment of CGI
+ * handle SIGBUS during writes of data that has been memory mapped
+ * minor optimization in select.c that prevents DEAD requests from
+   being added to the block set
+ * fix bug in CGI environment script_name - closes sf.net bug #576725
+ * make 'status' variable local to requests.c, not local to every file
+   by forgetting to declare 'extern' in globals.h :-|
+ * make getsockname non-fatal, and do it every time because we may
+   need it for the CGI
+ * some minor refactoring optimizations in hash.c
+
+</pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>4 May 2002 - Version 0.94.12 released!</b></td>
+      </tr>
+
+      <tr>
+        <td>The tarball (118,118 bytes) is <a href=
+        "boa-0.94.12.tar.gz">here</a> and the detached signature
+        for the tarball is <a href=
+        "boa-0.94.12.tar.gz.asc">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>The only difference between 0.94.12rc8 and 0.94.12 is
+        the version in defines.h</td>
+      </tr>
+
+      <tr>
+        <td><b>5 Apr 2002 - Version 0.94.12rc8 released.</b></td>
+      </tr>
+
+      <tr>
+        <td>The tarball (118,136 bytes) is <a href=
+        "boa-0.94.12rc8.tar.html">here</a> and the detached signature
+        for the tarball is <a href=
+        "boa-0.94.12rc8.tar.gz.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>There is only 1 difference between 0.94.12rc7 and
+        0.94.12rc8 - a debugging statement has been removed.</td>
+      </tr>
+
+      <tr>
+        <td><b>3 Apr 2002 - Version 0.94.12rc7 released.</b></td>
+      </tr>
+
+      <tr>
+        <td>The tarball (118,144 bytes) is <a href=
+        "boa-0.94.12rc7.tar.html">here</a> and the detached signature
+        for the tarball is <a href=
+        "boa-0.94.12rc7.tar.gz.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>
+          There is only 1 difference between 0.94.12rc6 and
+          0.94.12rc7, and it has to deal with making sure alias
+          matching is very consistent. When matching an url to an
+          alias, Boa will match the entire 'virtual' part of the
+          alias. Additionally, if the 'real' part of the alias does
+          not end in '/', the first character after the matched
+          part of the url must be either '/' or '\0' - allowing
+          '/foo' to match both '/foo' and '/foo/' but not
+          '/foobar'<br>
+           The ChangeLog entries since 0.94.12rc6 are as follows:
+<pre>
+ * adapted fix for alias expansion from Brieuc Jeunhomme
+</pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>24 Mar 2002 - Version 0.94.12rc6 released.</b></td>
+      </tr>
+
+      <tr>
+        <td>The tarball (117,848 bytes) is <a href=
+        "boa-0.94.12rc6.tar.html">here</a> and the detached signature
+        for the tarball is <a href=
+        "boa-0.94.12rc6.tar.gz.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>
+          There are only a few differences between 0.94.12rc6 and
+          0.94.12rc5:<br>
+           The ChangeLog entries since 0.94.12rc5 are as follows:
+<pre>
+* add send_r_bad_gateway and use it
+ * tie stderr to either cgi_log_fd or devnullfd - either way
+   make sure stderr is a valid filehandle before cgi execution
+ * cgi_env is no longer allocated, it's part of the struct now
+ * fix bug in CgiPath logic
+ * when unable to allocate memory for an environment variable, log it
+ * add clear_common_env, which de-allocates the cgi_common_env stuff
+   [NEVER USE THIS outside of a terminal signal handler!]
+ * don't be so wasteful of memory in normalize_path
+</pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>22 Mar 2002 - Version 0.94.12rc5 released.</b></td>
+      </tr>
+
+      <tr>
+        <td>The tarball (117,007 bytes) is <a href=
+        "boa-0.94.12rc5.tar.html">here</a> and the detached signature
+        for the tarball is <a href=
+        "boa-0.94.12rc5.tar.gz.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>
+          There are only a few differences between 0.94.12rc5 and
+          0.94.12rc4:<br>
+           The ChangeLog entries since 0.94.12rc4 are as follows:
+<pre>
+ * add function boa_atoi, which wraps atoi, but does not
+   accept negative values. Additionally, it checks to make sure
+   the converted value and the original value are the same, avoiding
+   issues like "124.3" -&gt; "123" and "123abc" -=&gt; "123".
+   Either a value is an int or it isn't - no middle ground.
+ * use boa_atoi to convert content-length from client.
+ * add new #define - SINGLE_POST_LIMIT_DEFAULT, which defines
+   (in bytes) the *default* single_post_limit.
+ * single_post_limit is now in bytes.
+ * when adding aliases, only "normalize" paths that start
+   with "./" - this is a departure from previous behavior
+ * add "?" to the list of characters that it is safe to leave unescaped
+</pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>16 Mar 2002 - Version 0.94.12rc4 released.</b></td>
+      </tr>
+
+      <tr>
+        <td>The tarball (116,297 bytes) is <a href=
+        "boa-0.94.12rc4.tar.html">here</a> and the detached signature
+        for the tarball is <a href=
+        "boa-0.94.12rc4.tar.gz.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>
+          There are only two differences between 0.94.12rc3 and
+          0.94.12rc4 - a bug is fixed in POST, and a config file
+          variable is introduced. Both are detailed below.<br>
+           The ChangeLog entries since 0.94.12rc3 are as follows:
+<pre>
+ * fix POST bug where a content-length &lt; 0 would cause Boa to
+   consume its full share of CPU until killed
+   Bug report by Landon Curt Noll
+ * add CGIPath configuration variable
+   based upon a patch by Landon Curt Noll
+</pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>02 Mar 2002 - Version 0.94.12rc3 released.</b></td>
+      </tr>
+
+      <tr>
+        <td>The tarball (116,134 bytes) is <a href=
+        "boa-0.94.12rc3.tar.html">here</a> and the detached signature
+        for the tarball is <a href=
+        "boa-0.94.12rc3.tar.gz.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td>
+          Most of the updates to 0.94.12rc2 are fairly minor, and
+          primarily help compilation on Solaris. Also, some signal
+          handlers were improved, and the select loop is now in
+          select.c, helping abstraction. Additionally, unless
+          ORIGINAL_BEHAVIOR is #defined, Boa will now poll the
+          server socket once per active connection until there are
+          no more waiting requests. This should have two effects -
+          a **very** slightly greater latency (if it is measured at
+          all), but a **much** more consistent latency. Finally,
+          Boa now tells clients that it is too busy, although in
+          practical terms, this is not very likely to happen, due
+          to various factors.<br>
+           The ChangeLog entries since 0.94.12rc2 are as follows:
+<pre>
+ * try to make NOBLOCK handling in compat.h compatible with Solaris
+ * make sure to update current_time before calling signal handlers
+ * alter primary loop to make sure that select gets called even
+   when there are requests that are not blocking, and call fdset_update
+   and process_requests (when appropriate) after signal handlers but
+   before select to make sure that blocked requests are still handled
+   by select after a sighup. (Thanks to Karl Olsen)
+ * pull select loop into select.c
+ * poll server socket once per active connection
+ * add send_r_service_unavailable and use it when appropriate
+ * state uptime in seconds at normal program termination
+ * include sys/fcntl.h if it is found by configure
+</pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>17 Feb 2002 - Version 0.94.12rc2 released.</b></td>
+      </tr>
+
+      <tr>
+        <td>
+          The updates to 0.94.12rc1 are fairly minor, but do fix
+          one important bug regarding hashing (same bugfix as
+          0.94.11.1). The ChangeLog entries since 0.94.12rc1 are as
+          follows:
+<pre>
+ * add some new hash routines, and use djb2 (a variant on a
+   hash alrogithm popularized by Dan J. Bernstein)
+ * a side-effect of the new hash routines is a bugfix,
+   involving negative return values from hash routines.
+   This has been fixed.
+ * add a routine, show_hash_stats, which is called with other
+   statistical output via sigalarm
+ * remove some duplicate prototypes from config.c
+ * make simple_itoa take an unsigned int
+</pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td>The tarball (115,050 bytes) is <a href=
+        "boa-0.94.12rc2.tar.html">here</a> and the detached signature
+        for the tarball is <a href=
+        "boa-0.94.12rc2.tar.gz.html">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td><b>16 Feb 2002 - Version 0.94.11.1 released.</b></td>
+      </tr>
+
+      <tr>
+        <td>This is a maintainence release of 0.94.11 until 0.94.12
+        is finished. It only changes 2 things: Makefile.in had a
+        buglet where index_dir.o would not get removed on 'make
+        clean', and the hashing algorithm used could return
+        negative numbers resulting in a segfault. Both of these are
+        fixed here, and *no* other changes have been made.</td>
+      </tr>
+
+      <tr>
+        <td>The tarball (118,600 bytes) is <a href=
+        "boa-0.94.11.1.tar.gz">here</a> and the detached signature
+        for the tarball is <a href=
+        "boa-0.94.11.1.tar.gz.asc">here</a>.</td>
+      </tr>
+
+      <tr>
+        <td><b>11 Feb 2002 - Version 0.94.12rc1 released.</b></td>
+      </tr>
+
+      <tr>
+        <td>This is technically 0.94.12pre4 but I don't think
+        anything major will change between now and release. This
+        version also removes email addresses from the ChangeLog and
+        moves them to a CREDITS file. The CREDITS file will not be
+        available in plaintext on the website, and can only be
+        found in the tarball (or package). This is done to avoid
+        SPAM.</td>
+      </tr>
+
+      <tr>
+        <td>The detached signature for the tarball is <a href=
+        "boa-0.94.12rc1.tar.gz.html">here.</a></td>
+      </tr>
+
+      <tr>
+        <td>The tarball (114,275 bytes) is <a href=
+        "boa-0.94.12rc1.tar.html">here.</a></td>
+      </tr>
+
+      <tr>
+        <td><b>30 Jan 2002 - Version 0.94.12pre4 is being
+        prepared.</b></td>
+      </tr>
+
+      <tr>
+        <td>It's not quite ready yet, but it's close. It fixes a
+        minor bug introduced into 0.94.12, and makes CGI
+        environment handling much better (all memory allocates are
+        checked, etc...). There are a few other non code-related
+        changes like email address changes, and updated Copyrights,
+        etc...</td>
+      </tr>
+
+      <tr>
+        <td><b>20 Jan 2002 - Version 0.94.12pre3 has been
+        released!</b></td>
+      </tr>
+
+      <tr>
+        <td>View the <a href="ChangeLog.html">ChangeLog</a><br>
+        <br>
+         Versions 0.94.12pre2 and 0.94.12pre1 had some minor bugs
+        (and one show-stopper, regarding CGI) that 0.94.11 did not
+        have. The changes between 0.94.12pre2 and 0.94.12pre3
+        include an updated .depend file, elimination of the lame
+        MAINTAINER stuff in the Makefile, using fcntl + GET_FL to
+        get a file descriptor's flags *before* setting or unsetting
+        the fd's bits, making sure we call FD_ZERO on restart, and
+        a few other minor improvements.<br>
+         The reason for the pre-releases is that there are quite a
+        few changes in this release, and while most are geared
+        towards better platform compatability (specifically, *BSD
+        and Solaris), there are a few minor bugfixes as well.</td>
+      </tr>
+
+      <tr>
+        <td><b>11 Jan 2002 - Version 0.94.12pre2 released!</b></td>
+      </tr>
+
+      <tr>
+        <td><b>15 Dec 2001 - Version 0.94.12pre1 released!</b></td>
+      </tr>
+
+      <tr>
+        <td>
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>05 Nov 2001 - Version 0.94.11 released!</b></td>
+      </tr>
+
+      <tr>
+        <td>Get it here: <a href=
+        "boa-0.94.11.tar.gz">boa-0.94.11.tar.gz</a> (117,110
+        bytes)<br>
+         Signature <a href="boa-0.94.11.tar.gz.asc">here</a><br>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+<!-- Mirrored from www.boa.org/news.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Jun 2025 09:56:31 GMT -->
+</html>
+

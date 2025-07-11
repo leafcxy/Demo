@@ -1,0 +1,101 @@
+
+<!-- Mirrored from www.boa.org/0.92/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Jun 2025 09:56:42 GMT -->
+<head><title>Boa webserver</title></head>
+<body>
+<img src="newboa7.png" height="100" width="400">
+<h1>Boa</h1>
+
+Welcome to the home page for Boa, a high performance web server for
+Unix-alike computers, covered by the <a href="Gnu_License.html">Gnu General
+Public License</a>.  The current release is boa-0.92r.
+
+<p>Despite some indications to the contrary, this is not a dead-end
+program or web site.  As of fall 1998, we have:
+<ul>
+<li>A new maintenance release (<a href="boa-0.92r.tar.gz">snapshot q</a>,
+ probably the last) of the 0.92 series
+<li>A new e-mail address,
+<a href="mailto:support@boa.org">support@boa.org</a>,
+to make it easy to contact the developers.
+<li>A mailing list for general Boa discussion,
+<a href="mailto:discuss@boa.org">discuss@boa.org</a> (use
+<a href="mailto:discuss-subscribe@boa.org">discuss-subscribe@boa.org</a>
+to subscribe and 
+<a href="mailto:discuss-unsubscribe@boa.org">discuss-unsubscribe@boa.org</a>
+to unsubscribe).
+<li>A <a href="boa-0.93.html">web site</a> for the 0.93 (development) version,
+which is certainly usable, and considered part of the
+<a href="http://www.debian.org/">Debian Linux</a> distribution.
+<li>A web site for development of internationalization efforts
+(based on 0.93), in particular Czech:
+<a href="http://www.cz.boa.org/">www.cz.boa.org</a>.
+</ul>
+
+<p>
+Boa is a single-tasking HTTP server.  That means that unlike
+traditional web servers, it does not fork for each incoming
+connection, nor does it fork many copies of itself to handle multiple
+connections.  It internally multiplexes all of the ongoing HTTP
+connections, and forks only for CGI programs (which must be separate
+processes.)  Preliminary tests show boa is about twice as fast as
+<a href="http://www.apache.org/">Apache</a>, and is capable of
+handling 50 hits per <em>second</em> on a 66 MHz '486.
+
+<p>
+The primary design goals of Boa are speed and security.  Security,
+in the sense of &quot;can't be subverted by a malicious user&quot;, not
+&quot;fine grained access control and encrypted communications&quot;.
+Boa is not intended as a feature-packed server; if you want one of those,
+check out <a href="http://hopf.math.nwu.edu/">WN</a> from John Franks.
+Modifications to Boa that improve its speed, security, robustness, and
+portability, are eagerly sought.  Other features may be added if they
+can be achieved without hurting the primary goals.
+
+<p>
+Boa was created by Paul Phillips &lt;psp@well.com&gt;.
+It is now being maintained and enhanced by Larry Doolittle
+&lt;ldoolitt@cebaf.gov&gt;.  Other possible contact people are
+Charles F. Randall (lost), and Jon Nelson &lt;nels0988@tc.umn.edu&gt;.
+Linux is the development platform at the moment, other OS's are
+known to work.  If you'd like to contribute to this effort, contact
+Larry or Jon via e-mail.
+
+
+<h2><a href="boa-0.92r.tar.gz">Download Boa Now!</a> (61k source .tar.gz)</h2>
+(release 0.92r, dated 11 February, 2000)<br>
+
+<p>
+Users of any older versions of Boa should upgrade to either 0.92r
+(no user-visible changes) or the <a href="../index.html">0.94 series</a>
+(many new features and generally much faster).
+
+<p>
+Are you <a href="cynical.html">cynical</a> about the idea of using Boa
+on a production site?
+
+<h2>More information:</h2>
+<ul>
+<li><a href="details.html#install">Installation and Usage</a>
+<li><a href="details.html#perf">Performance limits and design philosophy</a>
+<li><a href="details.html#diffs">Differences between Boa and other web servers</a>
+<li><a href="details.html#bugs">Possible bugs</a>
+<li><a href="details.html#quirks">Possible unexpected behavior</a>
+<li><a href="todo.txt">Possible improvements</a>
+<li><a href="Gnu_License.html">License</a>
+<li><a href="details.html#acks">Acknowledgments</a>
+<li><a href="logos.html">Logos</a>
+<li><a href="contrib.html">User Contributions</a>
+<li><a href="biblio.html">Bibliography</a>
+<li>(historical) <a href="readme-0.91.txt">Paul Phillips' README</a>
+ for release 0.91
+</ul>
+<p>
+NEW!  We have a <a href="Y2K.html">Y2K statement</a>.
+<hr>
+Last update: 11 February, 2000<br>
+<a href="http://recycle.lbl.gov/~ldoolitt/">Larry Doolittle</a>
+
+</body>
+
+<!-- Mirrored from www.boa.org/0.92/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Jun 2025 09:56:47 GMT -->
+</html>
